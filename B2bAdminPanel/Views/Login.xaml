@@ -1,0 +1,25 @@
+﻿<Window x:Class="B2bAdminPanel.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:B2bAdminPanel.Views"
+        xmlns:vm="clr-namespace:B2bAdminPanel.ViewModel"
+        xmlns:adorners="http://gu.se/Adorners" 
+        mc:Ignorable="d"
+        Title="Login" WindowState="Maximized" >
+    <Window.Resources>
+       <vm:LoginViewModel x:Key="LoginViewModel"/>
+    </Window.Resources>
+    <Grid  DataContext="{Binding Source={StaticResource LoginViewModel}}" Background="AliceBlue">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <TextBox Name="user" adorners:Watermark.Text="UserName"  Height="25" Margin="10,30" Text="{Binding User.UserName, Mode=TwoWay}" />
+            <TextBox Name="password" adorners:Watermark.Text="Password" Height="25" Margin="10"  Text="{Binding User.Password, Mode=TwoWay}"/>
+            <CheckBox Name="CheckboxRemember" IsChecked="True" Margin="10,20,0,0" Height="15" Width="15" HorizontalAlignment="Left"  />
+            <Label Content="Remember Me" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="100" Margin="35,-20,0,0" />
+            <Button IsDefault="True" Margin="10,20,0,0"  HorizontalAlignment="Center" Height="25" FontSize="11" Background="#3C8DBC" 
+                    Foreground="White" Content="Sign in" Width="60" Command="{Binding SubmitCommand}" CommandParameter="{Binding User}"/> 
+        </StackPanel>
+    </Grid>
+</Window>

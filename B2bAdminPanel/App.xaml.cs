@@ -1,4 +1,5 @@
-﻿using System;
+﻿using B2bAdminPanel.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace B2bAdminPanel
     /// </summary>
     public partial class App : Application
     {
+       
+        
     }
 }
